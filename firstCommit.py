@@ -10,9 +10,11 @@ def phoneRing():
     play("phoneRing.mp3")
     timer = 0
     pickedUp = False
+    startTime = time.time()
     while timer<30 and not pickedUp:
         pickedUp = receiverPickedUp
-        timer = timer + 0.1
+        timer = time.time() - startTime 
+        time.sleep(0.01)
     stop("phoneRing.mp3")
     if pickedUp:
         #Selecting audio file to play
