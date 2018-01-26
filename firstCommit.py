@@ -19,16 +19,18 @@ def phoneRing():
     if pickedUp:
         #Selecting audio file to play
         randomNum = randint(0,3)
-        fileToPlay = audioFiles[randomNum][0]
+        fileToPlay,audioLength = audioFiles[randomNum]
         play(fileToPlay)
-        audioLength = audioLengths[randomNum][1]
         timer = 0
+        startTime = time.time()
         #While loop to test whether audio file runs out "organically" or is hung up on
         while timer<audioLength and pickedUp:
-            timer = timer + 0.1
+            timer = time.time() - startTime
             pickedUp = receiverPickedUp
             if not pickedUp:
                 stop(fileToPlay)
+            time.sleep(0.01)
+        time.sleep(30)
     else: #Receiver wasn't picked up, time out whole program for 30 seconds
         time.sleep(30)
 
