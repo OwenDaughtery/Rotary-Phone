@@ -15,7 +15,9 @@ def idle():
             break #if user pressed other than the given key the loop will break
 
 def phoneRing():
-    play("phoneRing.mp3")
+    pygame.mixer.init()
+    pygame.mixer.music.load("ringing.mp3")
+    pygame.mixer.music.play()
     pickedUp = pickUpTimer(30, "phoneRing.mp3", False)
     if pickedUp:
         #Selecting audio file to play
