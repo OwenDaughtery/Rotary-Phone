@@ -1,10 +1,18 @@
+import keyboard #Using module keyboard
+import pygame
 #Dictionary containing the file strings and the length of that audio file in seconds
 audioFiles = {0 : ("audio0.mp3", 15), 1 : ("audio1.mp3", 21), 2 : ("audio2.mp3", 17)}
 
 def idle():
-    while PresureMat not pressed:
-        if presureMat pressed:
-            phoneRing()
+
+    while True:#making a loop
+        try: #used try so that if user pressed other than the given key error will not be shown
+            if keyboard.is_pressed('a'): #if key 'a' is pressed 
+                phoneRing()
+            else:
+                pass
+        except:
+            break #if user pressed other than the given key the loop will break
 
 def phoneRing():
     play("phoneRing.mp3")
@@ -13,7 +21,10 @@ def phoneRing():
         #Selecting audio file to play
         randomNum = randint(0,3)
         fileToPlay,audioLength = audioFiles[randomNum]
-        play(fileToPlay)
+
+        pygame.mixer.init()
+        pygame.mixer.music.load(fileToPlay)
+        pygame.mixer.music.play()
         pickUpTimer(audioLength, fileToPlay, True)
         time.sleep(30)
     else: #Receiver wasn't picked up, time out whole program for 30 seconds
@@ -25,15 +36,21 @@ def phoneRing():
 #3: Whether the while loop should exit if the phone is "off the hook" or not,
 #If the 3rd parameter is False the while loop will be ran as long as the phone hasn't been picked up.
 def pickUpTimer(timerEnd, fileName, offHook):        
-    pickedUp = ReceiverPickedUp()        
+    pickedUp = False       
     timer = 0
     startTime = time.time()
     while timer<timerEnd and pickedUp == offHook:
-        pickedUp = receiverPickedUp()
+        try: #used try so that if user pressed other than the given key error will not be shown
+            if keyboard.is_pressed('b'): #if key 'a' is pressed 
+                pickedUp = True
+            else:
+                pass
+        except:
+            break #if user pressed other than the given key the loop will break
         timer = time.time() - startTime 
         time.sleep(0.01)
         if not offHook:
-            stop(fileName) 
+            stop(fileName) #<--------------
     return timer<timerEnd
         
 def receiverPickedUp():
