@@ -63,9 +63,9 @@ def phoneRing():
     pickedUp = pickUpTimer(27, "Phone.mp3", receiverInput.value, True)
     if pickedUp:
         #Selecting audio file to play
-        randomNum = random.randint(1,2)
+        randomNum = random.randint(1,len(audioFiles)-1)
         index = (randomNum+previouslyChosen)%len(audioFiles)
-        previouslyChosen = randomNum
+        previouslyChosen = index
 
         #objectToPlay = audioObjects[randomNum]
         #objectToPlay.play()
