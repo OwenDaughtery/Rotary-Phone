@@ -8,6 +8,7 @@ import gpiozero
 import signal
 terminate=False
 
+
 def handler(signum, frame):
     global terminate
     print("Termination requested")
@@ -37,6 +38,9 @@ matOutput = gpiozero.OutputDevice(23, initial_value=False)
 previouslyChosen = 0
 audioFiles = [("only-2-socks.mp3", 12), ("struggle-different-culture.mp3", 30), ("using-PAs.mp3", 28)]
 #audioObjects = [pygame.mixer.Sound(file) for file in audioFiles]
+
+pygame.mixer.music.load("beep.mp3")
+pygame.mixer.music.play()
 
 def idle():
 
