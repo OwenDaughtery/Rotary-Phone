@@ -12,3 +12,5 @@ Repo for code for:
 * pin 13: Reciever switch BCM 27
 * pin 15: Pressure mat switch BCM 22
 * pin 16: Pressure mat switch BCM 23
+
+![](pinout.png)
