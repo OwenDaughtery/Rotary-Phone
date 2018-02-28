@@ -21,7 +21,7 @@ os.chdir(dname)
 
 pygame.init()
 #pygame.display.set_mode((100, 100))
-pygame.mixer.init()
+pygame.mixer.init(48000, -16, 2, 1024)
 pygame.mixer.music.load("Phone.mp3")
 #pygame.mixer.music.play()
 #time.sleep(5)
@@ -70,10 +70,10 @@ def phoneRing():
         pygame.mixer.music.load(objectToPlay)
         pygame.mixer.music.play()
         pickUpTimer(audioLength, objectToPlay, receiverInput.value, False)
-        time.sleep(30)
+        time.sleep(20)
     else: #Receiver wasn't picked up, time out whole program for 30 seconds
         #pygame.mixer.music.stop()
-        time.sleep(30)
+        time.sleep(20)
 
 #pickUpTimer takes 3 parameters,
 #1: How long the timer should last,
