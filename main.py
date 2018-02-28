@@ -85,7 +85,6 @@ def phoneRing():
 #3: Whether the while loop should exit if the phone is "off the hook" or not,
 #If the 3rd parameter is False the while loop will be ran as long as the phone hasn't been picked up.
 def pickUpTimer(timerEnd, objectToPlay, offHook, triggerWhen):
-    print("pickuptimer called")
     #pickedUp = False       
     timer = 0
     startTime = time.time()
@@ -97,7 +96,6 @@ def pickUpTimer(timerEnd, objectToPlay, offHook, triggerWhen):
         print(timer)
         time.sleep(0.01)
             
-    print("leaving timer")
     pygame.mixer.music.stop()
     return offHook==triggerWhen
         
