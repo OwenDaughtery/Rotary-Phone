@@ -36,7 +36,7 @@ receiverOutput = gpiozero.OutputDevice(17, initial_value=False)
 matInput = gpiozero.InputDevice(22, pull_up=True)
 matOutput = gpiozero.OutputDevice(23, initial_value=False)
 previouslyChosen = 0
-audioFiles = [("only-2-socks.mp3", 21), ("struggle-different-culture.mp3", 39), ("housebound.mp3", 45), ("invisible-illness.mp3", 47), ("using-PAs.mp3", 31), ("cultural-pressures.mp3", 61), ("depression.mp3", 34), ("hoarding genes.mp3", 21), ("disabled-fear-of-judgement.mp3", 82), ("hoarding-fire.mp3", 64), ("no-water-washing.mp3", 71)]
+audioFiles = [("only-2-socks.mp3", 12), ("struggle-different-culture.mp3", 36), ("housebound.mp3", 44), ("invisible-illness.mp3", 43), ("using-PAs.mp3", 30), ("cultural-pressures.mp3", 61), ("depression.mp3", 30), ("hoarding genes.mp3", 21), ("disabled-fear-of-judgement.mp3", 82), ("hoarding-fire.mp3", 135), ("no-water-washing.mp3", 70)]
 #audioObjects = [pygame.mixer.Sound(file) for file in audioFiles]
 
 pygame.mixer.music.load("beep.mp3")
