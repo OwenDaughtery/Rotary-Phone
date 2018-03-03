@@ -36,7 +36,7 @@ receiverOutput = gpiozero.OutputDevice(17, initial_value=False)
 matInput = gpiozero.InputDevice(22, pull_up=True)
 matOutput = gpiozero.OutputDevice(23, initial_value=False)
 previouslyChosen = 0
-audioFiles = [("only-2-socks.mp3", 12), ("struggle-different-culture.mp3", 30), ("using-PAs.mp3", 28), ("cultural-pressures.mp3", 56), ("depression.mp3", 25), ("disabled-fear-of-judgement.mp3", 76), ("hoarding-fire.mp3", 193), ("housebound.mp3", 40), ("invisible-illness.mp3", 38), ("no-water-washing.mp3", 64)]
+audioFiles = [("only-2-socks.mp3", 21), ("struggle-different-culture.mp3", 39), ("housebound.mp3", 49), ("invisible-illness", 47) ("using-PAs.mp3", 28), ("cultural-pressures.mp3", 65), ("depression.mp3", 34), ("hoarding-genes.mp3", 21), ("disabled-fear-of-judgement.mp3", 85), ("hoarding-fire.mp3", 64), ("no-water-washing.mp3", 73)]
 #audioObjects = [pygame.mixer.Sound(file) for file in audioFiles]
 
 pygame.mixer.music.load("beep.mp3")
@@ -95,8 +95,14 @@ def pickUpTimer(timerEnd, objectToPlay, offHook, triggerWhen):
         timer = time.time() - startTime
         print(timer)
         time.sleep(0.01)
-            
+    
     pygame.mixer.music.stop()
+    if(timer>timerEnd):
+        pygame.mixer.music.load("hangup.mp3")
+        pygame.mixer.music.play()
+        time.sleep(2)
+        pygame.mixer.music.stop()
+    
     return offHook==triggerWhen
         
 def receiverPickedUp():
